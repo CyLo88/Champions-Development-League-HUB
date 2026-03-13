@@ -12,12 +12,12 @@
       <div>
         <p class="eyebrow">Promotion &amp; Relegation Fantasy Football</p>
         <h1>Champions &amp; Development League Hub</h1>
-        <p class="hero-text">Standings, history, tournament tracking, and a dedicated matchup center.</p>
+        <p class="hero-text">Dedicated matchup center with week navigation and player-level lineup scores.</p>
         <div class="hero-badges">
           <span>2 Leagues</span>
           <span>20 Teams</span>
-          <span>Dedicated Matchups Tab</span>
           <span>Week Navigation</span>
+          <span>Lineup Scores</span>
         </div>
         <div id="status" class="status">Loading league data…</div>
       </div>
@@ -37,23 +37,22 @@
     <section id="home" class="tab active">
       <div class="grid two">
         <div class="panel">
-          <div class="section-head"><h2>League Overview</h2><span class="pill">Home</span></div>
-          <p>This page now serves as the league dashboard only. Matchups have been moved into their own tab so league members can browse current and prior weeks more easily.</p>
+          <div class="section-head"><h2>League Dashboard</h2><span class="pill">Home</span></div>
+          <p>This page is now a dashboard only. Matchups live in their own tab and can be browsed week by week.</p>
           <ul class="overview">
-            <li>Champions League bottom 2 teams are relegated</li>
-            <li>Development League promotion comes from the championship game participants</li>
-            <li>Midseason tournament is controlled through <code>tournament.json</code></li>
-            <li>Use the Matchups tab to browse previous weeks</li>
+            <li>Use the <strong>Matchups</strong> tab to browse prior weeks.</li>
+            <li>Click any matchup card to view player lineups and points.</li>
+            <li>Champions League bottom 2 are relegated.</li>
+            <li>Development League promotion comes from the championship participants.</li>
           </ul>
         </div>
         <div class="panel">
           <div class="section-head"><h2>Quick Links</h2><span class="pill">Guide</span></div>
-          <p>Use the tabs above to jump directly to matchups, standings, tournament details, and bylaws.</p>
           <div class="quick-links">
-            <div class="quick-link">Matchups tab → weekly matchup archive</div>
-            <div class="quick-link">Champions tab → standings</div>
-            <div class="quick-link">Development tab → standings</div>
-            <div class="quick-link">Tournament tab → bracket</div>
+            <div class="quick-link">Matchups → week selector + lineup viewer</div>
+            <div class="quick-link">Champions → live standings</div>
+            <div class="quick-link">Development → live standings</div>
+            <div class="quick-link">Tournament → manual bracket</div>
           </div>
         </div>
       </div>
@@ -62,11 +61,18 @@
     <section id="matchups" class="tab">
       <div class="panel">
         <div class="section-head"><h2>League Matchups</h2><span class="pill">Weekly View</span></div>
+
+        <div class="league-toggle">
+          <button id="showChampions" class="toggle-btn active" type="button">Champions League</button>
+          <button id="showDevelopment" class="toggle-btn" type="button">Development League</button>
+        </div>
+
         <div class="week-controls">
           <button id="prevWeek" type="button">◀ Previous</button>
           <span id="weekLabel">Week --</span>
           <button id="nextWeek" type="button">Next ▶</button>
         </div>
+
         <div id="matchups">Loading matchups…</div>
       </div>
     </section>
@@ -100,6 +106,13 @@
       </div>
     </section>
   </main>
+
+  <div id="matchupModal" class="modal hidden">
+    <div class="modal-shell">
+      <button id="closeModal" class="close-btn" aria-label="Close">×</button>
+      <div id="matchupDetails"></div>
+    </div>
+  </div>
 
   <script src="app.js"></script>
 </body>
