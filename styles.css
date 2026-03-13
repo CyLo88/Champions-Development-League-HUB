@@ -1,0 +1,8 @@
+body{font-family:Arial;margin:0;background:#f5f7ff}
+header{background:#3b6edb;color:white;padding:20px}
+nav{background:#e8edff;padding:10px}
+nav button{margin:5px;padding:8px 12px;border:none;background:#3b6edb;color:white;border-radius:6px}
+.tab{display:none;padding:20px}
+.tab.active{display:block}
+table{width:100%;border-collapse:collapse}
+td,th{padding:8px;border-bottom:1px solid #ccc}
