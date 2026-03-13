@@ -1,69 +1,106 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Champions & Development League Hub</title>
-<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Champions & Development League Hub</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <header class="hero">
+    <div class="hero-inner">
+      <div>
+        <p class="eyebrow">Promotion &amp; Relegation Fantasy Football</p>
+        <h1>Champions &amp; Development League Hub</h1>
+        <p class="hero-text">Standings, history, tournament tracking, and a dedicated matchup center.</p>
+        <div class="hero-badges">
+          <span>2 Leagues</span>
+          <span>20 Teams</span>
+          <span>Dedicated Matchups Tab</span>
+          <span>Week Navigation</span>
+        </div>
+        <div id="status" class="status">Loading league data…</div>
+      </div>
+    </div>
+  </header>
 
-<header class="hero">
-<h1>Champions & Development League Hub</h1>
-<p>Promotion & Relegation Fantasy Football</p>
-</header>
+  <nav class="tabs">
+    <button class="tab-btn active" data-tab="home">Home</button>
+    <button class="tab-btn" data-tab="matchups">Matchups</button>
+    <button class="tab-btn" data-tab="champions">Champions League</button>
+    <button class="tab-btn" data-tab="development">Development League</button>
+    <button class="tab-btn" data-tab="tournament">Tournament</button>
+    <button class="tab-btn" data-tab="bylaws">Bylaws</button>
+  </nav>
 
-<nav class="tabs">
-<button class="tab-btn active" data-tab="home">Home</button>
-<button class="tab-btn" data-tab="matchups">Matchups</button>
-<button class="tab-btn" data-tab="champions">Champions League</button>
-<button class="tab-btn" data-tab="development">Development League</button>
-<button class="tab-btn" data-tab="tournament">Tournament</button>
-<button class="tab-btn" data-tab="bylaws">Bylaws</button>
-</nav>
+  <main class="container">
+    <section id="home" class="tab active">
+      <div class="grid two">
+        <div class="panel">
+          <div class="section-head"><h2>League Overview</h2><span class="pill">Home</span></div>
+          <p>This page now serves as the league dashboard only. Matchups have been moved into their own tab so league members can browse current and prior weeks more easily.</p>
+          <ul class="overview">
+            <li>Champions League bottom 2 teams are relegated</li>
+            <li>Development League promotion comes from the championship game participants</li>
+            <li>Midseason tournament is controlled through <code>tournament.json</code></li>
+            <li>Use the Matchups tab to browse previous weeks</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <div class="section-head"><h2>Quick Links</h2><span class="pill">Guide</span></div>
+          <p>Use the tabs above to jump directly to matchups, standings, tournament details, and bylaws.</p>
+          <div class="quick-links">
+            <div class="quick-link">Matchups tab → weekly matchup archive</div>
+            <div class="quick-link">Champions tab → standings</div>
+            <div class="quick-link">Development tab → standings</div>
+            <div class="quick-link">Tournament tab → bracket</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<main class="container">
+    <section id="matchups" class="tab">
+      <div class="panel">
+        <div class="section-head"><h2>League Matchups</h2><span class="pill">Weekly View</span></div>
+        <div class="week-controls">
+          <button id="prevWeek" type="button">◀ Previous</button>
+          <span id="weekLabel">Week --</span>
+          <button id="nextWeek" type="button">Next ▶</button>
+        </div>
+        <div id="matchups">Loading matchups…</div>
+      </div>
+    </section>
 
-<section id="home" class="tab active">
-<h2>League Hub</h2>
-<p>Welcome to the Champions & Development League Hub. Use the tabs above to explore standings, matchups, and tournament information.</p>
-</section>
+    <section id="champions" class="tab">
+      <div class="panel">
+        <div class="section-head"><h2>Champions League Standings</h2><span class="pill">Live Table</span></div>
+        <div class="table-wrap"><div id="championsStandings">Loading…</div></div>
+      </div>
+    </section>
 
-<section id="matchups" class="tab">
-<h2>League Matchups</h2>
+    <section id="development" class="tab">
+      <div class="panel">
+        <div class="section-head"><h2>Development League Standings</h2><span class="pill">Live Table</span></div>
+        <div class="table-wrap"><div id="developmentStandings">Loading…</div></div>
+      </div>
+    </section>
 
-<div class="week-controls">
-<button id="prevWeek">◀</button>
-<span id="weekLabel">Week 1</span>
-<button id="nextWeek">▶</button>
-</div>
+    <section id="tournament" class="tab">
+      <div class="panel">
+        <div class="section-head"><h2>Midseason Tournament</h2><span class="pill">Manual Bracket</span></div>
+        <p class="section-note">Edit <code>tournament.json</code> in GitHub to update seeds and matchups.</p>
+        <div id="tournamentBracket">Loading bracket…</div>
+      </div>
+    </section>
 
-<div id="matchups"></div>
-</section>
+    <section id="bylaws" class="tab">
+      <div class="panel">
+        <div class="section-head"><h2>League Bylaws</h2><span class="pill">Reference</span></div>
+        <p><a href="https://docs.google.com/document/u/0/d/1w_9cNuI0ocjV3FAMfVEjs469tQYb9iYrHYu0Pr9WqBs/mobilebasic" target="_blank" rel="noopener noreferrer">View Full Bylaws</a></p>
+      </div>
+    </section>
+  </main>
 
-<section id="champions" class="tab">
-<h2>Champions League Standings</h2>
-<div id="championsStandings"></div>
-</section>
-
-<section id="development" class="tab">
-<h2>Development League Standings</h2>
-<div id="developmentStandings"></div>
-</section>
-
-<section id="tournament" class="tab">
-<h2>Midseason Tournament</h2>
-<div id="tournamentBracket"></div>
-</section>
-
-<section id="bylaws" class="tab">
-<h2>League Bylaws</h2>
-<p><a href="https://docs.google.com/document/u/0/d/1w_9cNuI0ocjV3FAMfVEjs469tQYb9iYrHYu0Pr9WqBs/mobilebasic" target="_blank">View Full Bylaws</a></p>
-</section>
-
-</main>
-
-<script src="app.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
