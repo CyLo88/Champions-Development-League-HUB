@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Champions & Development League Hub</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="hero">
+<h1>Champions & Development League Hub</h1>
+<p>Promotion & Relegation Fantasy Football System</p>
+<div id="status">Initializing…</div>
+</header>
+
+<nav class="tabs">
+<button onclick="showTab('home')">Home</button>
+<button onclick="showTab('champions')">Champions League</button>
+<button onclick="showTab('development')">Development League</button>
+<button onclick="showTab('history')">League History</button>
+<button onclick="showTab('tournament')">Midseason Tournament</button>
+<button onclick="showTab('bylaws')">Bylaws</button>
+</nav>
+
+<section id="home" class="tab active">
+<h2>Recent Matchups</h2>
+<div id="matchups">Loading matchups…</div>
+</section>
+
+<section id="champions" class="tab">
+<h2>Champions League Standings</h2>
+<div id="championsStandings">Loading…</div>
+</section>
+
+<section id="development" class="tab">
+<h2>Development League Standings</h2>
+<div id="developmentStandings">Loading…</div>
+</section>
+
+<section id="history" class="tab">
+<h2>League History</h2>
+<p>League history will populate automatically from Sleeper seasons beginning in 2023.</p>
+</section>
+
+<section id="tournament" class="tab">
+<h2>Midseason Tournament</h2>
+<p>The bracket will be managed manually, but live scores will pull from Sleeper matchups.</p>
+</section>
+
+<section id="bylaws" class="tab">
+<h2>League Bylaws</h2>
+
+<h3>League Structure</h3>
+<p>The league consists of two tiers: the Champions League and the Development League, each with 10 teams.</p>
+
+<h3>Promotion & Relegation</h3>
+<p>The bottom two teams in the Champions League are relegated to the Development League each season. 
+The top two teams in the Development League are promoted to the Champions League.</p>
+
+<h3>Midseason Tournament</h3>
+<p>A 20‑team single elimination tournament begins after Week 4 and continues through Week 10. 
+Seeding is based on league standings at the time the bracket is created.</p>
+
+<h3>Playoffs</h3>
+<p>Each league has an 8‑team playoff beginning in Week 15. Final standings determine champions 
+and promotion or relegation outcomes.</p>
+
+<h3>Trades, Waivers & Rosters</h3>
+<p>Teams follow Sleeper roster settings and FAAB waiver rules. Trades and transactions are 
+processed through the Sleeper platform.</p>
+
+<p>For rule questions, contact the commissioner through league chat.</p>
+</section>
+
+<script src="app.js"></script>
+</body>
+</html>

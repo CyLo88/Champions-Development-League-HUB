@@ -1,0 +1,60 @@
+
+body{
+font-family: Arial, sans-serif;
+background:#f4f7fb;
+color:#1a1a1a;
+margin:0;
+}
+
+.hero{
+padding:30px;
+background:#3b6edb;
+color:white;
+}
+
+.tabs{
+display:flex;
+flex-wrap:wrap;
+background:#e6ecf8;
+padding:10px;
+}
+
+.tabs button{
+margin:5px;
+padding:10px 15px;
+border:none;
+background:#3b6edb;
+color:white;
+border-radius:6px;
+cursor:pointer;
+}
+
+.tabs button:hover{
+background:#2c56b5;
+}
+
+.tab{
+display:none;
+padding:20px;
+}
+
+.tab.active{
+display:block;
+}
+
+.card{
+background:white;
+padding:15px;
+margin:10px 0;
+border-radius:8px;
+box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+.relegation{
+border-left:6px solid #e53935;
+}
+
+.rank{
+font-weight:bold;
+margin-right:8px;
+}
