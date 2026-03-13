@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Champions & Development League Hub</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <div>
+        <p class="eyebrow">Promotion &amp; Relegation Fantasy Football</p>
+        <h1>Champions &amp; Development League Hub</h1>
+        <p class="hero-text">Standings, history, transactions, tournament updates, and league context in one place.</p>
+        <div class="hero-badges">
+          <span>2 Leagues</span>
+          <span>20 Teams</span>
+          <span>Promotion / Relegation</span>
+          <span>Midseason Tournament</span>
+        </div>
+        <div id="status" class="status">Loading site data…</div>
+      </div>
+      <div class="brand-card">
+        <div class="brand-trophy">🏆</div>
+        <div>
+          <strong>CDL Hub</strong>
+          <div class="muted">Fantasy League Website</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab-btn active" data-tab="home">Home</button>
+    <button class="tab-btn" data-tab="champions">Champions League</button>
+    <button class="tab-btn" data-tab="development">Development League</button>
+    <button class="tab-btn" data-tab="power">Power Rankings</button>
+    <button class="tab-btn" data-tab="trophy">Trophy Case</button>
+    <button class="tab-btn" data-tab="tournament">Tournament</button>
+    <button class="tab-btn" data-tab="bylaws">Bylaws</button>
+  </nav>
+
+  <main class="container">
+    <section id="home" class="tab active">
+      <div class="grid two">
+        <div class="panel">
+          <div class="section-head"><h2>Latest Matchups</h2><span class="pill">Scoreboard</span></div>
+          <div id="matchups">Loading matchups…</div>
+        </div>
+        <div class="panel">
+          <div class="section-head"><h2>Top Scoring Teams</h2><span class="pill">Season</span></div>
+          <div id="topScorers">Loading…</div>
+        </div>
+      </div>
+      <div class="grid two">
+        <div class="panel">
+          <div class="section-head"><h2>League Snapshot</h2><span class="pill">Quick Guide</span></div>
+          <ul class="overview">
+            <li>Champions League bottom 2 are relegated.</li>
+            <li>Development League promotion comes from championship game participants.</li>
+            <li>Midseason tournament is managed manually through <code>tournament.json</code>.</li>
+            <li>Trophy case can show champion, runner-up, and third place.</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <div class="section-head"><h2>History Preview</h2><span class="pill">Since 2023</span></div>
+          <div id="historyPreview">Loading…</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="champions" class="tab">
+      <div class="panel">
+        <div class="section-head"><h2>Champions League Standings</h2><span class="pill">Live Table</span></div>
+        <div class="table-wrap"><div id="championsStandings">Loading…</div></div>
+      </div>
+    </section>
+
+    <section id="development" class="tab">
+      <div class="panel">
+        <div class="section-head"><h2>Development League Standings</h2><span class="pill">Live Table</span></div>
+        <div class="table-wrap"><div id="developmentStandings">Loading…</div></div>
+      </div>
+    </section>
+
+    <section id="power" class="tab">
+      <div class="panel">
+        <div class="section-head"><h2>Power Rankings</h2><span class="pill">Auto Calculated</span></div>
+        <div id="powerRankings">Loading…</div>
+      </div>
+    </section>
+
+    <section id="trophy" class="tab">
+      <div class="panel">
+        <div class="section-head"><h2>Trophy Case</h2><span class="pill">Editable</span></div>
+        <div id="trophyCase">Loading trophy case…</div>
+      </div>
+    </section>
+
+    <section id="tournament" class="tab">
+      <div class="panel">
+        <div class="section-head"><h2>Midseason Tournament</h2><span class="pill">Manual Bracket</span></div>
+        <p class="section-note">Edit <code>tournament.json</code> in GitHub to update seeds and matchups.</p>
+        <div id="tournamentBracket">Loading bracket…</div>
+      </div>
+    </section>
+
+    <section id="bylaws" class="tab">
+      <div class="panel bylaws">
+        <div class="section-head"><h2>League Bylaws</h2><span class="pill">Public Safe</span></div>
+        <p>For the full bylaws, use the original document link below if anything here appears abbreviated.</p>
+        <p><a href="https://docs.google.com/document/u/0/d/1w_9cNuI0ocjV3FAMfVEjs469tQYb9iYrHYu0Pr9WqBs/mobilebasic" target="_blank" rel="noopener noreferrer">View Full Bylaws Document</a></p>
+        <h3>League Fees</h3>
+        <ul>
+          <li>Champions League: $100 + $25 tournament fee</li>
+          <li>Development League: $75 + $25 tournament fee</li>
+        </ul>
+        <h3>Promotion / Relegation</h3>
+        <p>Bottom two Champions League teams are relegated. Development League promotion is determined by the two teams that reach the championship game.</p>
+        <h3>Roster</h3>
+        <p>1 QB, 2 RB, 2 WR, 1 TE, 1 Flex, 1 K, 1 DEF, 6 bench, 1 IR.</p>
+        <h3>Waivers</h3>
+        <p>$250 FAAB budget with playoff FAAB rules.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
