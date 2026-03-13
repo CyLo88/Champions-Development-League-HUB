@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Champions & Development League Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="site-shell">
+    <header class="topbar">
+      <div>
+        <div class="eyebrow">Promotion & Relegation Fantasy Football System</div>
+        <h1>Champions &amp; Development League Hub</h1>
+      </div>
+      <div class="status-wrap">
+        <span id="global-status" class="pill muted">Loading league data…</span>
+        <span id="last-updated" class="pill">--</span>
+      </div>
+    </header>
+
+    <nav class="main-nav" aria-label="Primary">
+      <button class="nav-link active" data-view="home">Home</button>
+      <button class="nav-link" data-view="champions">Champions League</button>
+      <button class="nav-link" data-view="development">Development League</button>
+      <button class="nav-link" data-view="history">League History</button>
+      <button class="nav-link" data-view="tournament">Midseason Tournament</button>
+      <button class="nav-link" data-view="bylaws">Bylaws</button>
+    </nav>
+
+    <main>
+      <section id="view-home" class="view active">
+        <div class="hero card">
+          <div>
+            <p class="section-kicker">League Overview</p>
+            <h2>Your two-tier fantasy football home base</h2>
+            <p class="lead">Live weekly scoreboards, standings, roster pages, transactions, and league history from Sleeper — all in one place.</p>
+          </div>
+          <div class="hero-metrics">
+            <div class="metric-card">
+              <span class="metric-label">Season Focus</span>
+              <strong id="season-focus">2025</strong>
+            </div>
+            <div class="metric-card">
+              <span class="metric-label">Active Week</span>
+              <strong id="active-week">--</strong>
+            </div>
+            <div class="metric-card">
+              <span class="metric-label">Refresh Cycle</span>
+              <strong>60 seconds</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-2">
+          <section class="card">
+            <div class="section-head">
+              <div>
+                <p class="section-kicker">Scoreboard</p>
+                <h3>Champions League</h3>
+              </div>
+              <button class="text-link" data-view-link="champions">Open league</button>
+            </div>
+            <div id="home-champions-scoreboard" class="stack gap-sm"></div>
+          </section>
+
+          <section class="card">
+            <div class="section-head">
+              <div>
+                <p class="section-kicker">Scoreboard</p>
+                <h3>Development League</h3>
+              </div>
+              <button class="text-link" data-view-link="development">Open league</button>
+            </div>
+            <div id="home-development-scoreboard" class="stack gap-sm"></div>
+          </section>
+        </div>
+
+        <div class="grid grid-2">
+          <section class="card">
+            <div class="section-head">
+              <div>
+                <p class="section-kicker">Standings Snapshot</p>
+                <h3>Champions Top 5</h3>
+              </div>
+            </div>
+            <div id="home-champions-standings"></div>
+          </section>
+
+          <section class="card">
+            <div class="section-head">
+              <div>
+                <p class="section-kicker">Standings Snapshot</p>
+                <h3>Development Top 5</h3>
+              </div>
+            </div>
+            <div id="home-development-standings"></div>
+          </section>
+        </div>
+
+        <div class="grid grid-2-1">
+          <section class="card">
+            <div class="section-head">
+              <div>
+                <p class="section-kicker">Recent Activity</p>
+                <h3>Latest Transactions</h3>
+              </div>
+            </div>
+            <div id="home-transactions"></div>
+          </section>
+
+          <section class="card">
+            <div class="section-head">
+              <div>
+                <p class="section-kicker">Movement Tracker</p>
+                <h3>Promotion &amp; Relegation</h3>
+              </div>
+            </div>
+            <div class="movement-grid">
+              <div>
+                <p class="movement-label">Promoted to Champions</p>
+                <ul id="promoted-list" class="movement-list"></ul>
+              </div>
+              <div>
+                <p class="movement-label">Relegated to Development</p>
+                <ul id="relegated-list" class="movement-list"></ul>
+              </div>
+            </div>
+            <div class="pyramid-card">
+              <div class="tier tier-top">Champions League</div>
+              <div class="tier-arrows">▲ &nbsp;&nbsp; ▲</div>
+              <div class="tier-caption">Promotion / Relegation</div>
+              <div class="tier-arrows down">▼ &nbsp;&nbsp; ▼</div>
+              <div class="tier tier-bottom">Development League</div>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section id="view-champions" class="view">
+        <div class="league-header card">
+          <div>
+            <p class="section-kicker">League View</p>
+            <h2>Champions League</h2>
+          </div>
+          <div class="subnav" data-league-subnav="champions">
+            <button class="subnav-link active" data-subview="scoreboard">Scoreboard</button>
+            <button class="subnav-link" data-subview="standings">Standings</button>
+            <button class="subnav-link" data-subview="teams">Teams</button>
+            <button class="subnav-link" data-subview="transactions">Transactions</button>
+          </div>
+        </div>
+
+        <div id="champions-scoreboard" class="league-panel active"></div>
+        <div id="champions-standings" class="league-panel"></div>
+        <div id="champions-teams" class="league-panel"></div>
+        <div id="champions-transactions" class="league-panel"></div>
+      </section>
+
+      <section id="view-development" class="view">
+        <div class="league-header card">
+          <div>
+            <p class="section-kicker">League View</p>
+            <h2>Development League</h2>
+          </div>
+          <div class="subnav" data-league-subnav="development">
+            <button class="subnav-link active" data-subview="scoreboard">Scoreboard</button>
+            <button class="subnav-link" data-subview="standings">Standings</button>
+            <button class="subnav-link" data-subview="teams">Teams</button>
+            <button class="subnav-link" data-subview="transactions">Transactions</button>
+          </div>
+        </div>
+
+        <div id="development-scoreboard" class="league-panel active"></div>
+        <div id="development-standings" class="league-panel"></div>
+        <div id="development-teams" class="league-panel"></div>
+        <div id="development-transactions" class="league-panel"></div>
+      </section>
+
+      <section id="view-history" class="view">
+        <div class="card">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">League History</p>
+              <h2>2023 to 2025</h2>
+            </div>
+          </div>
+          <p class="lead compact">This page follows the Sleeper league chain backward using each league’s <code>previous_league_id</code>, then calculates champions, standings, promotions, relegations, and participation totals.</p>
+        </div>
+        <div class="grid grid-2">
+          <section class="card">
+            <div class="section-head"><h3>Season Summaries</h3></div>
+            <div id="history-seasons"></div>
+          </section>
+          <section class="card">
+            <div class="section-head"><h3>All-Time Records</h3></div>
+            <div id="history-records"></div>
+          </section>
+        </div>
+        <section class="card">
+          <div class="section-head"><h3>League Participation</h3></div>
+          <div id="history-participation"></div>
+        </section>
+      </section>
+
+      <section id="view-tournament" class="view">
+        <div class="card">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">Manual Tournament Mode</p>
+              <h2>Midseason Tournament</h2>
+            </div>
+          </div>
+          <p class="lead compact">This page is manual by design. Bracket structure lives in <code>app.js</code>, but team point totals can still be pulled live from Sleeper for the active week.</p>
+        </div>
+        <div id="tournament-content" class="grid grid-2"></div>
+      </section>
+
+      <section id="view-bylaws" class="view">
+        <div class="card">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">Public-Safe Rules</p>
+              <h2>League Bylaws</h2>
+            </div>
+          </div>
+          <p class="lead compact">Personal contact information has been removed from the public version of the bylaws.</p>
+        </div>
+        <div id="bylaws-content" class="stack gap-md"></div>
+      </section>
+    </main>
+  </div>
+
+  <template id="empty-state-template">
+    <div class="empty-state">No data available yet.</div>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>
