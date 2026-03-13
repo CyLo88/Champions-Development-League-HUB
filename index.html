@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Champions & Development League Hub</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="hero">
+<h1>Champions & Development League Hub</h1>
+<p>Live standings, matchups, and league information</p>
+</header>
+
+<nav class="tabs">
+<button class="tab-btn active" data-tab="home">Home</button>
+<button class="tab-btn" data-tab="champions">Champions League</button>
+<button class="tab-btn" data-tab="development">Development League</button>
+<button class="tab-btn" data-tab="tournament">Tournament</button>
+<button class="tab-btn" data-tab="trophy">Trophy Case</button>
+<button class="tab-btn" data-tab="bylaws">Bylaws</button>
+</nav>
+
+<main class="container">
+
+<section id="home" class="tab active">
+<h2>Weekly Matchups</h2>
+<div id="matchups"></div>
+
+<div id="matchupModal" class="modal">
+<div class="modal-content">
+<span id="closeModal">X</span>
+<h3>Matchup Details</h3>
+<div id="matchupDetails"></div>
+</div>
+</div>
+
+</section>
+
+<section id="champions" class="tab">
+<h2>Champions League Standings</h2>
+<div id="championsStandings"></div>
+</section>
+
+<section id="development" class="tab">
+<h2>Development League Standings</h2>
+<div id="developmentStandings"></div>
+</section>
+
+<section id="tournament" class="tab">
+<h2>Midseason Tournament</h2>
+<div id="tournamentBracket"></div>
+</section>
+
+<section id="trophy" class="tab">
+<h2>Trophy Case</h2>
+<ul>
+<li>Champion - TBD</li>
+<li>Runner Up - TBD</li>
+<li>Third Place - TBD</li>
+</ul>
+</section>
+
+<section id="bylaws" class="tab">
+<h2>League Bylaws</h2>
+<p><a href="https://docs.google.com/document/u/0/d/1w_9cNuI0ocjV3FAMfVEjs469tQYb9iYrHYu0Pr9WqBs/mobilebasic" target="_blank">View Full Bylaws</a></p>
+</section>
+
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
